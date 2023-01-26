@@ -24,14 +24,15 @@ public class Main {
                         }
                     }
                 } else {
-                if (operation.equals("/") && num2 == 0) {
-                    System.out.println("Division by zero is impossible, please try again");
-                    continue;
+                    if (operation.equals("/") && num2 == 0) {
+                        System.out.println("Division by zero is impossible, please try again");
+                        continue;
+                    }
+                    double answer = 0;
+                    answer = new Main().calculate(num1, num2, operation);
+                    System.out.println(num1 + operation + num2 + "=" + answer);
                 }
-                double answer = 0;
-                answer = new Main().calculate(num1, num2, operation);
-                System.out.println(num1 + operation + num2 + "=" + answer);
-            }} catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Calculations can only be performed on numbers, please try again");
                 continue;
             }
