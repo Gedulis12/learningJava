@@ -1,32 +1,27 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         double height, weight;
         double bmi;
-        String rating;
-
         Scanner S = new Scanner(System.in);
         System.out.println("Please enter your height (in meters):");
         height = S.nextDouble();
         System.out.println("Please enter your weight (in in kilograms):");
         weight = S.nextDouble();
-        bmi = weight / Math.pow(height, 2);
-        DecimalFormat df = new DecimalFormat("##.##");
+        bmi = calculateBmi(height, weight);
+        printOutput(bmi);
+    }
 
-        if (bmi < 18.5) {
-            rating = "insufficient weight";
-            System.out.println("Your Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
-        } else if (bmi >= 18.5 && bmi < 25) {
-            rating = "normal weight";
-            System.out.println("Your Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
-        } else if (bmi >= 25 && bmi < 30) {
-            rating = "overweight";
-            System.out.println("Your Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
-        } else if (bmi > 30) {
-            rating = "obesity";
-            System.out.println("Your Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
-    /* cia klausimas, jei if blokuose tik deklaruoju 'rating' variable ir pabaigoje darau sout, gaunu klaida, ar yra budas nekartoti system.out kiekviename IF clause?, pvz:
+    static double calculateBmi(double h, double w) {
+        double bmi;
+        bmi = w / Math.pow(h, 2);
+        return bmi;
+    }
+    static void printOutput(double bmi) {
+        String rating = "";
+        DecimalFormat df = new DecimalFormat("##.##");
         if (bmi < 18.5) {
             rating = "insufficient weight";
         } else if (bmi >= 18.5 && bmi < 25) {
@@ -36,8 +31,6 @@ public class Main {
         } else if (bmi > 30) {
             rating = "obesity";
         }
-        System.out.println("Your Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
-     */
-        }
+        System.out.println("Body Mass Index is: " + df.format(bmi) + " which indicates " + rating);
     }
 }
