@@ -3,7 +3,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner S2 = new Scanner(System.in);
+        String name;
         String askDone;
+        System.out.println("Please enter your name. (or don't, it's up to you)");
+        name = S2.nextLine();
+        if (name.isEmpty()) {
+            printGreeting();
+        } else {
+            printGreeting(name);
+        }
         boolean done = false;
         while (!done) {
             System.out.println(getPayroll());
@@ -63,5 +71,13 @@ public class Main {
         } else System.out.println("invalid selection.");
         calculated = base * rate;
         return calculated;
+    }
+
+    static void printGreeting() {
+        System.out.println("This is a program that helps calculate payroll based on base salary and employee performance");
+    }
+
+    static void printGreeting(String name) {
+        System.out.println("Welcome " + name + ", this is a program that helps calculate payroll based on base salary and employee performance");
     }
 }
