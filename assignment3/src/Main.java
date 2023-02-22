@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {2, 17, 8, 4, 53, -6, -78, -1, -30, -5};
+        int[] numbers = {2, 17, 8, 4, 53, -6, -79, -1, -30, -5};
         int[] numbersWithMinMaxSwapped = swapMinMaxInArray(numbers);
         double average = calculateAverageOfEvenNumbers(numbers);
         int minOfNegativeEvens = getMinOfNegativeEvens(numbers);
@@ -94,7 +94,6 @@ public class Main {
      * @return type int[], an integer array with places swapped for min and max values
      */
     static int[] swapMinMaxInArray(int[] numbers) {
-        int idx = 0;
         int min = getMinValueInArray(numbers);
         int max = getMaxValueInArray(numbers);
         int minId = 0;
@@ -102,16 +101,13 @@ public class Main {
         int[] minMaxSwapped = new int[numbers.length];
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == min) {
-                minId = idx;
-                minMaxSwapped[idx] = numbers[i];
-                idx++;
+                minId = i;
+                minMaxSwapped[i] = numbers[i];
             } else if (numbers[i] == max) {
-                maxId = idx;
-                minMaxSwapped[idx] = numbers[i];
-                idx++;
+                maxId = i;
+                minMaxSwapped[i] = numbers[i];
             } else {
-                minMaxSwapped[idx] = numbers[i];
-                idx++;
+                minMaxSwapped[i] = numbers[i];
             }
         }
         minMaxSwapped[minId] = max;
@@ -136,6 +132,12 @@ public class Main {
         }
     }
 
+    /**
+     * Function takes an integer array and returns the lowest negative even value of the array.
+     *
+     * @param numbers an integer aray
+     * @return type int, lowest negative even value of the integer array.
+     */
     static int getMinOfNegativeEvens(int[] numbers) {
         int min = numbers[0];
         for (int i : numbers) {
@@ -152,9 +154,3 @@ public class Main {
         }
     }
 }
-
-/*
-Reikalavimai:
-Papildyti laboratorinį darbą nauju funkcionalumu.
-Sukurti funkciją, surandančią mažiausią skaičių tarp lyginių neigiamų masyvo elementų.
- */
