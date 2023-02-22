@@ -3,12 +3,15 @@ public class Main {
         int[] numbers = {2, 17, 8, 4, 53, -6, -78, -1, -30, -5};
         int[] numbersWithMinMaxSwapped = swapMinMaxInArray(numbers);
         double average = calculateAverageOfEvenNumbers(numbers);
+        int minOfNegativeEvens = getMinOfNegativeEvens(numbers);
         printArrayBeforeAndAfter(numbers, numbersWithMinMaxSwapped);
-        System.out.println("\ncalculated average of even numbers in array: " + average);
+        System.out.println("\nCalculated average of even numbers in array: " + average);
+        System.out.println("Minimum value of negative even numbers in array is: " + minOfNegativeEvens);
     }
 
     /**
      * Function calculates amount of even numbers in the integer array
+     *
      * @param numbers an integer array
      * @return type int, count of even numbers in the array
      */
@@ -24,6 +27,7 @@ public class Main {
 
     /**
      * Function adds up all of the even numbers in the integer array
+     *
      * @param numbers an integer array
      * @return type int, sum if all even numbers in the array
      */
@@ -39,6 +43,7 @@ public class Main {
 
     /**
      * Function calculates the average value of all even numbers in the array
+     *
      * @param numbers an integer array
      * @return type int, average of even numbers in the array
      */
@@ -52,6 +57,7 @@ public class Main {
 
     /**
      * Function returns the lowest value of the integer array
+     *
      * @param numbers an integer array
      * @return type int, min value of the array
      */
@@ -67,6 +73,7 @@ public class Main {
 
     /**
      * Function returns the highset value of the integer array
+     *
      * @param numbers an integer array
      * @return type int, max value of the array
      */
@@ -82,6 +89,7 @@ public class Main {
 
     /**
      * Function takes ant integer array and returns the array with it's min and max values swapped
+     *
      * @param numbers an integer array
      * @return type int[], an integer array with places swapped for min and max values
      */
@@ -113,8 +121,9 @@ public class Main {
 
     /**
      * Function takes two integer arrays and prints them as before and after variants
+     *
      * @param before an integer array (before changes)
-     * @param after an integer array (after changes)
+     * @param after  an integer array (after changes)
      */
     static void printArrayBeforeAndAfter(int[] before, int[] after) {
         System.out.println("Array before applying any changes: ");
@@ -126,4 +135,26 @@ public class Main {
             System.out.print(i + " ");
         }
     }
+
+    static int getMinOfNegativeEvens(int[] numbers) {
+        int min = numbers[0];
+        for (int i : numbers) {
+            if (i < 0 && i % 2 == 0) {
+                if (i < min) {
+                   min = i;
+                }
+            }
+        }
+        if (min < 0) {
+            return min;
+        } else {
+            return 0;
+        }
+    }
 }
+
+/*
+Reikalavimai:
+Papildyti laboratorinį darbą nauju funkcionalumu.
+Sukurti funkciją, surandančią mažiausią skaičių tarp lyginių neigiamų masyvo elementų.
+ */
