@@ -36,10 +36,6 @@ public class Person {
         return identityCode;
     }
 
-    public void setIdentityCode(String identityCode) {
-        this.identityCode = identityCode;
-    }
-
     public String getName() {
         return name;
     }
@@ -86,5 +82,19 @@ public class Person {
 
     public void setHairColor(String hairColor) {
         this.hairColor = hairColor;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "gender='" + gender + '\'' +
+                ", identityCode='" + identityCode + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", hairColor='" + hairColor + '\'' +
+                '}';
     }
 }
