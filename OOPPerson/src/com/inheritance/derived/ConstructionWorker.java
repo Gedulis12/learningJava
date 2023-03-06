@@ -1,12 +1,12 @@
 package com.inheritance.derived;
 
 public interface ConstructionWorker {
-    int getTotalWorkRecord();
-    void setTotalWorkRecord(int workRecord);
+    double getTotalWorkRecord();
+    void setTotalWorkRecord(double workRecord);
    String getEducation();
    void setEducation(String education);
    String getSpecialization();
    void setSpecialization(String specialization);
-   int getSalary();
-   void setSalary(int salary);
+   double getSalary();
+   void setSalary(double salary);
 }

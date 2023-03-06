@@ -1,16 +1,21 @@
 package com.inheritance.derived;
 
-public class ConstructionWorkerImpl implements ConstructionWorker {
+import com.inheritance.base.PersonImpl;
 
-    private int totalWorkRecord;
+public class ConstructionWorkerImpl extends PersonImpl implements ConstructionWorker {
+
+    private double totalWorkRecord;
     private String education;
     private String specialization;
-    private int salary;
+    private double salary;
 
     public ConstructionWorkerImpl() {
     }
 
-    public ConstructionWorkerImpl(int totalWorkRecord, String education, String specialization, int salary) {
+    public ConstructionWorkerImpl(
+            String gender, String identityCode, String name, String surname, int age, int weight, int height,
+            String hairColor, int totalWorkRecord, String education, String specialization, int salary) {
+        super(gender, identityCode, name, surname, age, weight, height, hairColor);
         this.totalWorkRecord = totalWorkRecord;
         this.education = education;
         this.specialization = specialization;
@@ -18,12 +23,12 @@ public class ConstructionWorkerImpl implements ConstructionWorker {
     }
 
     @Override
-    public int getTotalWorkRecord() {
+    public double getTotalWorkRecord() {
         return totalWorkRecord;
     }
 
     @Override
-    public void setTotalWorkRecord(int workRecord) {
+    public void setTotalWorkRecord(double workRecord) {
         this.totalWorkRecord = workRecord;
     }
 
@@ -48,12 +53,12 @@ public class ConstructionWorkerImpl implements ConstructionWorker {
     }
 
     @Override
-    public int getSalary() {
+    public double getSalary() {
         return this.salary;
     }
 
     @Override
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 }

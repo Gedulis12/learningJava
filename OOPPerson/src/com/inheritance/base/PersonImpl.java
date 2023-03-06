@@ -1,6 +1,5 @@
 package com.inheritance.base;
 
-// klase PersonImpl realizuoja (igyvendina (suteikia kamienus) visus metodus interfeise) interfeisa Person
 public class PersonImpl implements Person {
     private String gender;
     private String identityCode;
@@ -12,7 +11,8 @@ public class PersonImpl implements Person {
     private String hairColor;
 
 
-    public PersonImpl(String gender, String identityCode, String name, String surname, int age, int weight, int height, String hairColor) {
+    public PersonImpl(String gender, String identityCode, String name, String surname, int age, int weight,
+                      int height, String hairColor) {
         this.gender = gender;
         this.identityCode = identityCode;
         this.name = name;
@@ -24,7 +24,6 @@ public class PersonImpl implements Person {
     }
 
     public PersonImpl() {
-
     }
 
     public String getGender() {
@@ -61,6 +60,7 @@ public class PersonImpl implements Person {
                 ", hairColor='" + hairColor + '\'' +
                 '}';
     }
+
     public String getSurname() {
         return surname;
     }
