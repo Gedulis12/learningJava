@@ -5,7 +5,6 @@ public class Student {
     private String surname;
     private int[] grades;
     private double average;
-    private int numGrades;
 
     public Student() {
     }
@@ -20,6 +19,7 @@ public class Student {
         this.name = name;
         this.surname = surname;
     }
+
     public String getName() {
         return name;
     }
@@ -50,15 +50,15 @@ public class Student {
         int gradeSum = 0;
         int gradeCount = 0;
         for (int i : grades) {
-           gradeSum += i;
-           gradeCount += 1;
+            gradeSum += i;
+            gradeCount += 1;
         }
         average = (double) gradeSum / gradeCount;
         return average;
     }
 
     public void addGrade(int grade) {
-        int [] grades = new int[1];
+        int[] grades = new int[1];
         int[] grades2 = getGrades();
         if (getGrades() == null) {
             grades[0] = grade;
@@ -74,9 +74,10 @@ public class Student {
         }
     }
 
-    public String toString(int [] grades) {
+    public String toString(int[] grades) {
         return "grades: " + Arrays.toString(grades);
     }
+
     public String isDebtor() {
         String text;
         if (getAverage() < 3.5) {
