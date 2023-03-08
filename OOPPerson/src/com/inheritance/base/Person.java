@@ -20,7 +20,7 @@ public interface Person {
 
     void setHairColor(String hairColor);
 
-    public String getGender();
+    String getGender();
 
     void setGender(String gender);
 
