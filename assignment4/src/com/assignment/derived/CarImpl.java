@@ -43,7 +43,7 @@ public class CarImpl extends TransportImpl implements Car {
     }
 
     @Override
-    public boolean getEVPowered() {
+    public boolean isEVPowered() {
         return this.EVPowered;
     }
 

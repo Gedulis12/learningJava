@@ -42,7 +42,7 @@ public class Main {
     }
 
     /**
-     * Takes list of vehicles, finds 2 dorred "Audi" cars and changes their manufacturing year
+     * Takes list of vehicles, finds 2 doored "Audi" cars and changes their manufacturing year
      * @param cars type TransportImpl[] - list of vehicles
      * @param newYear type int, year that we want to set
      */
@@ -80,7 +80,7 @@ public class Main {
      */
     static void printEVCars(TransportImpl[] cars) {
         for (TransportImpl car : cars) {
-           if (car instanceof CarImpl && ((CarImpl) car).getEVPowered()) {
+           if (car instanceof CarImpl && ((CarImpl) car).isEVPowered()) {
                System.out.println(car);
            }
         }

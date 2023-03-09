@@ -6,5 +6,5 @@ public interface Car {
     void setDoorQty(int doors);
     int getDoorQty();
     void setEVPowered(boolean isEV);
-    boolean getEVPowered();
+    boolean isEVPowered();
 }
