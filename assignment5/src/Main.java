@@ -44,6 +44,7 @@ public class Main {
         // swap min and max unpaid amounts for heating services clients
         System.out.println("________________________________________");
         System.out.println("\nheating clients before swapping min and max amounts: ");
+        System.out.println(h1.toString() + "\n" + h2.toString() + "\n" + h3.toString());
         swapMinMaxHeatingBills(clients);
         System.out.println("\nheating clients after swapping min and max amounts: ");
         System.out.println(h1.toString() + "\n" + h2.toString() + "\n" + h3.toString());
@@ -70,7 +71,7 @@ public class Main {
      */
     static void printAllClients(ClientImpl[] clients) {
         for (ClientImpl client : clients) {
-            System.out.println(client.toString());
+            System.out.println(client);
         }
     }
     /**

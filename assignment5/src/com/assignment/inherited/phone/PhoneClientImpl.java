@@ -27,7 +27,7 @@ public class PhoneClientImpl extends ClientImpl implements PhoneClient {
         if (validatePhoneNumber(number)) {
             this.phoneNumber = number;
         } else {
-            this.phoneNumber = "I WAS ENTERED WRONG PLEASE CHANGE ME ASAP!!!";
+            this.phoneNumber = "PHONE NUMBER WAS ENTERED WRONG PLEASE CHANGE ASAP!!!";
         }
     }
 
