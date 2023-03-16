@@ -1,9 +1,76 @@
 import com.inheritance.base.*;
 import com.inheritance.derived.*;
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         //personHandler();
-        constructionWorkerHandler();
+        //constructionWorkerHandler();
+        PersonImpl cw1 = new ConstructionWorkerImpl(
+                "M", "00001", "Bobby", "Buldur", 46, 97, 190, "Dark", 27, "Higher", "Crane operator", 4700);
+        PersonImpl cw2 = new ConstructionWorkerImpl(
+                "F", "00002", "Marry", "Jane", 36, 70, 173, "Blonde", 7, "Higher", "Safety instructor", 2300);
+        PersonImpl cw3 = new ConstructionWorkerImpl(
+                "M", "00003", "Robert", "Sobotka", 52, 111, 180, "Bald", 30, "High school", "Sr. manager", 7000);
+        PersonImpl cw4 = new ConstructionWorkerImpl(
+                "M", "00004", "Nick", "Norris", 21, 80, 183, "Dark", 1, "High school", "Assistant", 700);
+        PersonImpl cw5 = new ConstructionWorkerImpl(
+                "M", "00005", "Johny", "Johnson", 47, 92, 181, "Dark", 32, "Higher", "Regular Worker", 2000);
+        PersonImpl cw6 = new ConstructionWorkerImpl(
+                "M", "00006", "Mary", "Marryson", 46, 81, 172, "Dark", 29, "Higher", "Regular Worker", 2100);
+        PersonImpl cw7 = new ConstructionWorkerImpl(
+                "M", "00007", "Larry", "Larryson", 37, 22, 171, "Dark", 32, "Higher", "Regular Worker", 2200);
+        PersonImpl cw8 = new ConstructionWorkerImpl(
+                "M", "00008", "Matt", "Mattson", 55, 98, 189, "Dark", 33, "Higher", "Regular Worker", 2300);
+        PersonImpl cw9 = new ConstructionWorkerImpl(
+                "M", "00009", "Saul", "Goodman", 42, 87, 183, "Dark", 12, "Middle", "Regular Worker", 6000);
+        PersonImpl cw10 = new ConstructionWorkerImpl(
+                "M", "00010", "Anthony", "Hopkins", 47, 55, 189, "Dark", 11, "Higher", "Regular Worker", 2400);
+        List<ConstructionWorkerImpl> consWorkers = new ArrayList<>();
+        consWorkers.add((ConstructionWorkerImpl) cw1);
+        consWorkers.add((ConstructionWorkerImpl) cw2);
+        consWorkers.add((ConstructionWorkerImpl) cw3);
+        consWorkers.add((ConstructionWorkerImpl) cw4);
+        consWorkers.add((ConstructionWorkerImpl) cw5);
+        consWorkers.add((ConstructionWorkerImpl) cw6);
+        consWorkers.add((ConstructionWorkerImpl) cw7);
+        consWorkers.add((ConstructionWorkerImpl) cw8);
+        consWorkers.add((ConstructionWorkerImpl) cw9);
+        consWorkers.add((ConstructionWorkerImpl) cw10);
+
+        // print all objects using iterator
+        Iterator i = consWorkers.iterator();
+        // print all objects with iterator
+        while (i.hasNext()) {
+            System.out.println(i.next());
+        }
+
+        // print all objects using lambda function
+        consWorkers.forEach(a -> {
+            System.out.println(a);
+        });
+        System.out.println("-----");
+        Iterator<ConstructionWorkerImpl> n = consWorkers.iterator();
+        while (n.hasNext()) {
+            ConstructionWorkerImpl c = n.next();
+            if (c.getTotalWorkRecord() < 4) {
+                n.remove();
+            }
+        }
+        System.out.println("-----");
+
+        consWorkers.forEach(a -> {
+            System.out.println(a);
+        });
+
+        System.out.println("Sorted objects by salary and education: \n");
+        Collections.sort(consWorkers);
+        System.out.println("-----");
+
+        consWorkers.forEach(a -> {
+            System.out.println(a);
+        });
     }
 
     static void constructionWorkerHandler() {

@@ -2,7 +2,9 @@ package com.inheritance.derived;
 
 import com.inheritance.base.PersonImpl;
 
-public class ConstructionWorkerImpl extends PersonImpl implements ConstructionWorker {
+import java.util.Comparator;
+
+public class ConstructionWorkerImpl extends PersonImpl implements ConstructionWorker, Comparable<ConstructionWorkerImpl> {
 
     private double totalWorkRecord;
     private String education;
@@ -60,5 +62,24 @@ public class ConstructionWorkerImpl extends PersonImpl implements ConstructionWo
     @Override
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "totalWorkRecord=" + totalWorkRecord +
+                ", education='" + education + '\'' +
+                ", specialization='" + specialization + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
+
+    @Override
+    public int compareTo(ConstructionWorkerImpl constructionWorker) {
+        return Comparator
+                .comparing(ConstructionWorkerImpl::getSalary)
+                .reversed()
+                .thenComparing(ConstructionWorkerImpl::getEducation)
+                .compare(this, constructionWorker);
     }
 }
