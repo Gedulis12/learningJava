@@ -1,14 +1,18 @@
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
+    // class name must be passed when creating a logger
+    static Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
         Scanner T = new Scanner(System.in);
         String userAnswer;
         boolean tryAgain = true;
         while (tryAgain) {
             try {
-                String operation = new Main().getOperation();
-                ArrayList<Integer> numbers = new Main().getNumbers();
+                String operation = getOperation();
+                ArrayList<Integer> numbers = getNumbers();
                 double num1 = numbers.get(0);
                 double num2 = numbers.get(1);
                 if (operation.equals("#")) {
@@ -29,7 +33,7 @@ public class Main {
                         continue;
                     }
                     double answer = 0;
-                    answer = new Main().calculate(num1, num2, operation);
+                    answer = calculate(num1, num2, operation);
                     System.out.println(num1 + operation + num2 + "=" + answer);
                 }
             } catch (InputMismatchException e) {
@@ -46,7 +50,7 @@ public class Main {
         }
     }
 
-    public String getOperation() {
+    static String getOperation() {
         String operation;
         List<String> validInputs = Arrays.asList("+", "-", "*", "/", "#");
         while (true) {
@@ -62,7 +66,7 @@ public class Main {
         return operation;
     }
 
-    public ArrayList<Integer> getNumbers() {
+    static ArrayList<Integer> getNumbers() {
         int num1 = 0;
         int num2 = 0;
         Scanner N = new Scanner(System.in);
@@ -76,7 +80,7 @@ public class Main {
         return numbers;
     }
 
-    public double calculate(double num1, double num2, String operation) {
+    static double calculate(double num1, double num2, String operation) {
         double answer = 0;
         if (operation.equals("+")) {
             answer = num1 + num2;
