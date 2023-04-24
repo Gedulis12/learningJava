@@ -1,13 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
     <head>
         <title>Calculator</title>
+        <style>
+            .error {color: red}
+        </style>
     </head>
     <body>
         <h2>Internet calculator. Available operations: add, subtract, multiply, divide</h2>
-        <form method="POST" action="calculate">
-            First number: <input type="number" name="n1"><p>
-            Second number: <input type="number" name="n2"><p>
+        <h3>Calculator does not work with negative numbers</h3>
+        <form:form method="POST" action="calculate" modelAttribute="number">
+            First number: <form:input type="number" path="n1"/>
+            <form:errors path="n1" cssClass="error"/><p>
+            Second number: <form:input type="number" path="n2"/>
+            <form:errors path="n2" cssClass="error"/><p>
             Operator symbol:
             <select name="operation">
                 <option selected="selected" value="+">Add</option>
@@ -16,6 +23,6 @@
                 <option value="/">Divide</option>
             </select><p>
             <input type="submit" value="calculate">
-        </form>
+        </form:form>
     </body>
 </html>
