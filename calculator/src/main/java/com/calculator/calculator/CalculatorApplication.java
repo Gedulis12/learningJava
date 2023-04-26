@@ -3,7 +3,7 @@ package com.calculator.calculator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// SpringBootApplication anotation is the same as @Configuration, @EnableAutoConfiguration and @ComponentScan
+// SpringBootApplication annotation is the same as @Configuration, @EnableAutoConfiguration and @ComponentScan
 // It is used in the class with main method
 @SpringBootApplication
 public class CalculatorApplication {

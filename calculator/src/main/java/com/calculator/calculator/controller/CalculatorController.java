@@ -1,5 +1,6 @@
-package com.calculator.calculator;
+package com.calculator.calculator.controller;
 
+import com.calculator.calculator.model.Number;
 import jakarta.validation.Valid;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
