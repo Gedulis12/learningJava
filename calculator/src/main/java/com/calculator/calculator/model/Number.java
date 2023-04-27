@@ -91,4 +91,9 @@ public class Number {
                 ", result=" + result +
                 '}';
     }
+
+    // must have this for Model to work between FE and BE
+    public void setId(int id) {
+        this.id = id;
+    }
 }

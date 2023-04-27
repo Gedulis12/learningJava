@@ -90,4 +90,35 @@ public class CalculatorController {
         // return JSP file which must be placed in "webapp/WEB-INF/JSP"
         return "calculator.jsp";
     }
+
+    @GetMapping("/numbers")
+    public String showHistoryPage(Model model) {
+        model.addAttribute("numbers", numberService.getAll());
+        return "numbers.jsp";
+    }
+
+    @GetMapping("/show{id}")
+    public String getById(@RequestParam("id") int id, Model model) {
+        model.addAttribute("number", numberService.getById(id));
+        return "number.jsp";
+    }
+
+    @GetMapping("/delete{id}")
+    public String deleteById(@RequestParam("id") int id, Model model) {
+        numberService.delete(id);
+        model.addAttribute("numbers", numberService.getAll());
+        return "numbers.jsp";
+    }
+
+    @GetMapping("/update{id}")
+    public String updateById(@RequestParam("id") int id, Model model) {
+        model.addAttribute("number", numberService.getById(id));
+        return "update.jsp";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute("number") Number number) {
+        numberService.update(number);
+        return "redirect:/show?id=" + number.getId();
+    }
 }
