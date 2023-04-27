@@ -1,7 +1,10 @@
 package com.calculator.calculator.controller;
 
 import com.calculator.calculator.model.Number;
+import com.calculator.calculator.service.NumberService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +26,14 @@ import java.util.HashMap;
 // in this case it's working together with main method
 @EnableAutoConfiguration
 public class CalculatorController {
+
+    // data flows like this:
+    // user -> CalculatorController -> NumberService -> NumberDAO
+
+    @Autowired
+    @Qualifier("NumberService")
+    public NumberService numberService;
+
     @RequestMapping(method = RequestMethod.POST, value = "/calculate")
 
     // RequestParam annotation passes the arguments through url
@@ -34,7 +45,7 @@ public class CalculatorController {
             @RequestParam HashMap<String, String> inputNumbers, ModelMap outputNumbers) {
 
         // If validation errors (see validation in Number class by each number variable)
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             // user stays in calculator page until the validation errors are not fixed
             return "calculator.jsp";
         } else { // user passed validation
@@ -50,7 +61,7 @@ public class CalculatorController {
             } else if (operation.equals("*")) {
                 result = n1 * n2;
             } else if (operation.equals("/") && n2 != 0) {
-                result = n1 / n2;
+                result = (double) n1 / n2;
             }
 
             // inputNumbers are used to send data from spring MVC controller to JSP file (view)
@@ -59,7 +70,9 @@ public class CalculatorController {
             outputNumbers.put("operation", operation);
             outputNumbers.put("result", result);
 
-           return "calculate.jsp";
+            numberService.insert(new Number(n1, n2, operation, result));
+
+            return "calculate.jsp";
         }
 
         // Application context is interface for giving information about application configuration
@@ -69,6 +82,7 @@ public class CalculatorController {
         // Calculator bean = (Calculator) applicationContext.getBean("calculator");
         // return bean.getHello();
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String displayHomePage(Model model) {
         // If Model 'number' does not pass validation - errors through it are returned to view

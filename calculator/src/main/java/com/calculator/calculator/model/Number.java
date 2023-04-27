@@ -26,12 +26,19 @@ public class Number {
     private String operation;
 
     @Column(name = "result")
-    private int result;
+    private double result;
 
     public Number() {}
 
-    public Number(int id, int n1, int n2, String operation, int result) {
+    public Number(int id, int n1, int n2, String operation, double result) {
         this.id = id;
+        this.n1 = n1;
+        this.n2 = n2;
+        this.operation = operation;
+        this.result = result;
+    }
+
+    public Number(int n1, int n2, String operation, double result) {
         this.n1 = n1;
         this.n2 = n2;
         this.operation = operation;
@@ -66,11 +73,11 @@ public class Number {
         this.operation = operation;
     }
 
-    public int getResult() {
+    public double getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(double result) {
         this.result = result;
     }
 

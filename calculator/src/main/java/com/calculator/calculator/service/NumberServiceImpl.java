@@ -19,7 +19,7 @@ public class NumberServiceImpl implements NumberService {
     // @Qualifier annotation together with @Autowired ensures which exact Bean should be used to connect dependencies to
     // If @Configuration class has more than one Bean @qualifier is a must.
     // In other cases we get error: 'consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed'
-    @Qualifier("NumberDao")
+    @Qualifier("NumberDAO")
     private NumberDAO numberDAO;
 
     @Override
