@@ -45,7 +45,7 @@ public class NumberDAOImpl implements NumberDAO {
         entityTransaction.begin();
 
         List<Number> numbers = entityManager
-                .createQuery("SELECT Number FROM Number")
+                .createQuery("SELECT n FROM Number n")
                 .getResultList();
 
         entityManager.getTransaction().commit();

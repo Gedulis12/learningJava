@@ -92,7 +92,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/numbers")
-    public String showHistoryPage(Model model) {
+    public String getAllNumbers(Model model) {
         model.addAttribute("numbers", numberService.getAll());
         return "numbers.jsp";
     }

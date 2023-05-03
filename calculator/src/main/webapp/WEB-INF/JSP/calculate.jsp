@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>calculate</title>
+        <jsp:include page="header.jsp"/>
     </head>
     <body>
         <h4> ${n1} ${operation} ${n2} = ${result} </h4>

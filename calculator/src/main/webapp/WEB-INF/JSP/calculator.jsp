@@ -6,6 +6,7 @@
         <style>
             .error {color: red}
         </style>
+        <jsp:include page="header.jsp"/>
     </head>
     <body>
         <h2>Internet calculator. Available operations: add, subtract, multiply, divide</h2>
