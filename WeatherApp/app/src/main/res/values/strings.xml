@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_register_button">Create new account</string>
+    <string name="register_register_button">Register</string>
+    <string name="bad_login_pattern">username or password does not adhere to the requirements.</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="register_email">Email</string>
+    <string name="bad_register_username">Username does not adhere to the requirements</string>
+    <string name="bad_register_password">Password does not adhere to the requirements</string>
+    <string name="bad_register_email">Email does not adhere to the requirements</string>
+    <string name="main_button_text">Add new weather</string>
+    <string name="main_edit_button">Edit</string>
+    <string name="main_delete_button">Delete</string>
+    <string name="popup_edit_country">Enter country name</string>
+    <string name="popup_edit_weather">Enter degrees</string>
+    <string name="popup_save_button">Save</string>
+</resources>
